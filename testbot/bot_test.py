@@ -7,12 +7,13 @@ import time
 import config
 
 
+
 def bot_login():
 	reddit = praw.Reddit(username = config.username,
 				password = config.password,
 				client_id = config.client_id,
 				client_secret= config.client_secret,
-				user_agent = config.username, " bot V1")
+				user_agent = config.username + " python bot V1 by /u/nparbs")
 					
 	return reddit
 
@@ -42,9 +43,9 @@ def run_bot(reddit):
 		if submission.id not in posts_replied_to:
 
 			# Do a case insensitive search
-			if re.search("test", submission.title, re.IGNORECASE):
+			if re.search("SEARCH", submission.title, re.IGNORECASE):
 				# Reply to the post
-				submission.reply("reply test :)")
+				submission.reply("REPLY")
 				print("Bot replying to : ", submission.title)
 
 				# Store the current id into our list
